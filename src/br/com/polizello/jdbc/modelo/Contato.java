@@ -1,12 +1,14 @@
 package br.com.polizello.jdbc.modelo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Contato {
 	private Long id;
 	private String nome;
 	private String email;
-	private String endereço;
+    private String endereco;
 	private Calendar dataNascimento;
 	
 	public Long getId() {
@@ -27,11 +29,13 @@ public class Contato {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getEndereço() {
-		return endereço;
-	}
-	public void setEndereço(String endereço) {
-		this.endereço = endereço;
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
 	}
 	public Calendar getDataNascimento() {
 		return dataNascimento;
@@ -39,4 +43,12 @@ public class Contato {
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+
+    @Override
+    public String toString() {
+        return " Nome: '" + nome + '\'' +
+                ", Email: '" + email + '\'' +
+                ", Endereço: '" + endereco + '\'' +
+                ", Data de Nascimento: " + new SimpleDateFormat("dd/MM/yyyy").format(dataNascimento.getTime());
+    }
 }
